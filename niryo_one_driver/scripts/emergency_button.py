@@ -1,7 +1,12 @@
+#!/usr/bin/env python
+import rospy
 import RPi.GPIO as GPIO
 import time
 from niryo_one_python_api.niryo_one_api import *
+from std_msgs.msg import Bool
 
+rospy.init_node("emergency_button", anonymous=True)
+tmp = rospy.wait_for_message("/niryo_one/learning_mode", Bool)
 
 n = NiryoOne()
 
