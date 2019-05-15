@@ -5,6 +5,7 @@ from niryo_one_msgs.msg import DigitalIOState
 from niryo_one_msgs.srv import SetInt
 
 activate_robot_srv = None
+robot_on = True
 
 def digital_io_callback(data):
 	if activate_robot_srv is None:
@@ -14,8 +15,12 @@ def digital_io_callback(data):
 	#corresponds to io16
 	emergency_button = data.states[2]
 	if emergency_button == 0: # goes 0 if button pressed
-		rospy.loginfo("Niryo One Emergency Button: Emergency Button Pressed!")
-		activate_robot_srv(emergency_button)
+		if robot_on:
+			rospy.loginfo("Niryo One Emergency Button: Emergency Button Pressed!")
+			activate_robot_srv(emergency_button)
+			robot_on = False
+	else:
+		robot_on = True
 	
 	return
 
