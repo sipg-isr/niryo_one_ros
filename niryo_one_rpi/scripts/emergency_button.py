@@ -1,29 +1,28 @@
 #!/usr/bin/env python
 import rospy
-import RPi.GPIO as GPIO
-import time
-from niryo_one_python_api.niryo_one_api import *
-from std_msgs.msg import Bool
 
-rospy.init_node("niryo_emergency_button", anonymous=True)
-tmp = rospy.wait_for_message("/niryo_one/learning_mode", Bool)
+from niryo_one_msgs.msg import DigitalIOState
+from niryo_one_msgs.srv import SetInt
 
-n = NiryoOne()
+activate_robot_srv = None
 
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(16, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-             
-def callback_function_falling(channel):
-    #print("Button Activated...")
-    try:
-        n.activate_learning_mode(True)
-       # print("Robot Learning Mode Active")
-    except NiryoOneException as e:
-        rospy.logerr("Niryo_One/Emergency_button: Error Calback Function")
-        #print(e)
+def digital_io_callback(data):
+	if activate_robot_srv is None:
+		rospy.logerr("Niryo One Emergency Button: activate robot srv not ready!")
+		return
+	
+	#corresponds to io16
+	emergency_button = data.state[2]
+	if emergency_button == 0: # goes 0 if button pressed
+		rospy.loginfo("Niryo One Emergency Button: Emergency Button Pressed!")
+		activate_robot_srv(emergency_button)
+	
+	return
 
-GPIO.add_event_detect(16, GPIO.FALLING, callback=callback_function_falling)
-r = rospy.Rate(1)
-while not rospy.is_shutdown():
-        r.sleep()
-GPIO.cleanup()
+
+if __name__ == "__main__":
+	rospy.init_node("niryo_one_emergency_buttom")
+	rospy.wait_for_service("/niryo_one/activate_learning_mode")
+	activate_robot_srv = rospy.ServiceProxy("/niryo_one/activate_learning_mode", SetInt)
+	rospy.Subscriber("/niryo_one/rpi/digital_io_state", DigitalIOState, digital_io_callback)
+    rospy.spin()
