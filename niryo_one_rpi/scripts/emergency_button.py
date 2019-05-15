@@ -19,10 +19,9 @@ def digital_io_callback(data):
 	
 	return
 
-
 if __name__ == "__main__":
 	rospy.init_node("niryo_one_emergency_buttom")
 	rospy.wait_for_service("/niryo_one/activate_learning_mode")
 	activate_robot_srv = rospy.ServiceProxy("/niryo_one/activate_learning_mode", SetInt)
 	rospy.Subscriber("/niryo_one/rpi/digital_io_state", DigitalIOState, digital_io_callback)
-    rospy.spin()
+	rospy.spin()
