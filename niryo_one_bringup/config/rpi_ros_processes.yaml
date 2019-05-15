@@ -32,7 +32,7 @@ processes:
           - robot_commander
     - name: 'emergency_button'
       launch_on_startup: true
-      delay_before_start: 20.0
+      delay_before_start: 4.0
       cmd: 'roslaunch niryo_one_bringup emergency_button.launch'
       args: 
         []
