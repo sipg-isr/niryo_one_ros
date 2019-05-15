@@ -1,0 +1,5 @@
+<launch>
+
+    <node name="niryo_one/emergency_button" pkg="nyrio_one_rpi" type="emergency_button.py" output="screen" />
+
+</launch>
