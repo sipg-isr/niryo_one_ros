@@ -8,6 +8,7 @@ activate_robot_srv = None
 robot_on = True
 
 def digital_io_callback(data):
+	global robot_on
 	if activate_robot_srv is None:
 		rospy.logerr("Niryo One Emergency Button: activate robot srv not ready!")
 		return
