@@ -12,7 +12,7 @@ def digital_io_callback(data):
 		return
 	
 	#corresponds to io16
-	emergency_button = data.state[2]
+	emergency_button = data.states[2]
 	if emergency_button == 0: # goes 0 if button pressed
 		rospy.loginfo("Niryo One Emergency Button: Emergency Button Pressed!")
 		activate_robot_srv(emergency_button)
