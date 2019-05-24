@@ -198,9 +198,6 @@ class NiryoOne:
         #
 
         def calibrate_auto(self):
-            result = self.call_service('niryo_one/request_new_calibration', SetInt, [1])
-            if result.status != 200:
-                raise NiryoOneException(result.message)
             result = self.call_service('niryo_one/calibrate_motors',
                     SetInt, [1])
             if result.status != 200:
