@@ -34,7 +34,7 @@
     <xacro:property name="distance_wrist_hand_y" value="0" />
     <xacro:property name="distance_hand_tool" value="0.00" />
     <!-- TSR 2018-19-07 Adding info about test spoon-->
-    <xacro:property name="spoon_offset_x" value="0.14" />
+    <xacro:property name="spoon_offset_x" value="0.17" />
     <xacro:property name="spoon_offset_y" value="0.0" />
     <xacro:property name="spoon_offset_z" value="0.067" />
 	
