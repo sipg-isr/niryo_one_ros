@@ -44,6 +44,8 @@
 
     <!-- load URDF -->
     <!-- on Raspberry Pi 3 (ARM architecture) we get a segfault when using visual and collision stuff -->
+    
+    <!-- TODO A description without to v1 -->
     <param name="urdf_without_meshes" value="$(arg urdf_without_meshes)" />
     <group if="$(eval hardware_version == 1)">
 
@@ -51,9 +53,11 @@
         <param name="robot_description" command="$(find xacro)/xacro --inorder $(find niryo_one_description)/urdf/v1/niryo_one.urdf.xacro" unless="$(arg urdf_without_meshes)"/>
         <param name="robot_description_tf2" command="$(find xacro)/xacro --inorder $(find niryo_one_description)/urdf/v2/niryo_one.urdf.xacro" />
     </group>
+
+    <!-- TODO A description without the meshes -->
     <group if="$(eval hardware_version == 2)">
         <param name="robot_description" command="$(find xacro)/xacro --inorder $(find niryo_one_description)/urdf/v2/without_mesh_niryo_one.urdf.xacro" if="$(arg urdf_without_meshes)"/>
-        <param name="robot_description" command="$(find xacro)/xacro --inorder $(find niryo_one_description)/urdf/v2/niryo_one.urdf.xacro" unless="$(arg urdf_without_meshes)"/>
-        <param name="robot_description_tf2" command="$(find xacro)/xacro --inorder $(find niryo_one_description)/urdf/v2/niryo_one.urdf.xacro" />
+        <param name="robot_description" command="$(find xacro)/xacro --inorder $(find niryo_one_description)/urdf/feedbot/feedbot.urdf.xacro" unless="$(arg urdf_without_meshes)"/>
+        <param name="robot_description_tf2" command="$(find xacro)/xacro --inorder $(find niryo_one_description)/urdf/feedbot/feedbot.urdf.xacro" />
     </group>
 </launch>
