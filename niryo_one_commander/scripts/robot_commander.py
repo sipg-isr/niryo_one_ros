@@ -69,8 +69,7 @@ class RobotCommander:
         if not plan : 
             raise RobotCommanderException(
                 CommandStatus.PLAN_FAILED, "Moveit failed to compute the plan.")
-
-	self.reset_controller()
+        self.reset_controller()
         rospy.loginfo("Send Moveit trajectory")
         return self.arm_commander.execute_plan(plan)
 
