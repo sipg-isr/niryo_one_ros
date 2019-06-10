@@ -1,0 +1,19 @@
+<launch>
+    <!-- optionally, add a prefix to the beginning of link names (since tf_prefix is not supported in tf2) -->
+    <arg name="link_prefix" default=""/>
+
+    <arg name="hardware_version" default="2" /> 
+	
+	<!-- create file for version 2 of niryo -->
+	<arg name="urdf_feedbot_file" default="$(find xacro)/xacro --inorder '$(find feedbot_description)/urdf/feedbot_v2_wmesh.urdf.xacro'" if="$(eval hardware_version == 2)"/>
+
+	<arg name="gui" default="true" />
+
+	<param name="robot_description"  command="$(arg urdf_feedbot_file)"/>
+
+	<param name="use_gui" value="$(arg gui)" />
+
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find feedbot_description)/config/default_config.rviz" />
+</launch>

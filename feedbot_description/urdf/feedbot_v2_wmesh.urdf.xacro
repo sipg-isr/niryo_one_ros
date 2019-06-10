@@ -236,13 +236,13 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-                <mesh filename="package://niryo_one_description/meshes/feedbot_parts/collada/spoon_holder.dae" />
+                <mesh filename="package://feedbot_description/meshes/feedbot_parts/collada/spoon_holder.dae" />
 			</geometry>
 		</visual>
         <collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="package://niryo_one_description/meshes/feedbot_parts/stl/spoon_holder.stl" />
+                <mesh filename="package://feedbot_description/meshes/feedbot_parts/stl/spoon_holder.stl" />
             </geometry>
         </collision>
 		<inertial>
