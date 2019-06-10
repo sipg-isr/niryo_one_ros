@@ -7,6 +7,7 @@ Panels:
         - /Global Options1
         - /Status1
         - /RobotModel1
+        - /TF1
         - /TF1/Frames1
       Splitter Ratio: 0.5
     Tree Height: 724
@@ -142,12 +143,12 @@ Visualization Manager:
         spoon_holder_link:
           Value: true
         spoon_link:
-          Value: false
+          Value: true
         tool_link:
           Value: true
         wrist_link:
           Value: false
-      Marker Scale: 0.5
+      Marker Scale: 0.200000003
       Name: TF
       Show Arrows: true
       Show Axes: true
@@ -161,11 +162,10 @@ Visualization Manager:
                   forearm_link:
                     wrist_link:
                       hand_link:
-                        spoon_link:
-                          {}
                         tool_link:
                           spoon_holder_link:
-                            {}
+                            spoon_link:
+                              {}
       Update Interval: 0
       Value: true
   Enabled: true
@@ -193,25 +193,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 0.741796434
+      Distance: 0.5550071
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.391202331
-        Y: -0.0104910498
-        Z: 0.138428777
+        X: 0.213477775
+        Y: 0.0738205239
+        Z: 0.293876737
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: -0.0276979916
+      Pitch: -0.197698101
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 5.52213907
+      Yaw: 6.13717842
     Saved: ~
 Window Geometry:
   Displays:
