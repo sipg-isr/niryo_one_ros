@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: feedbot_description
+    relative_path: urdf/feedbot_v2_wmesh.urdf.xacro
+    xacro_args: "--inorder "
+  SRDF:
+    relative_path: config/niryo_one.srdf
+  CONFIG:
+    author_name: Alexandre Candeias
+    author_email: candeiasalexandre@gmail.com
+    generated_timestamp: 1561121827

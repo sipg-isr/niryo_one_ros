@@ -48,4 +48,8 @@
         <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find feedbot_description)/urdf/feedbot_v2_wmesh.urdf.xacro'" unless="$(arg urdf_without_meshes)"/>
         <param name="robot_description_tf2" command="$(find xacro)/xacro --inorder '$(find feedbot_description)/urdf/feedbot_v2_wmesh.urdf.xacro'" />
     </group>
+
+    <!-- MOVEIT launch -->
+    <!-- Moveit move_group -->
+    <include file="$(find feedbot_moveit_config)/launch/move_group.launch" />
 </launch>
