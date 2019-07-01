@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<robot name="feedbot_camera" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find feedbot_description)/urdf/_d415.urdf.xacro" />
+
+  <link name="feedbot_camera_base_link"/>
+
+  <sensor_d415 parent="feedbot_camera_base_link">
+     <origin xyz="0 0 0" rpy="0 0 0"/>
+  </sensor_d415>
+  
+</robot>
