@@ -7,14 +7,13 @@
     
     <xacro:include filename="$(find feedbot_gazebo)/models/realsense_camera/urdf/_d415.urdf.xacro" />
 
-    <link name="feedbot_camera_base_link"/>
+    <link name="feedbot_camera_base_link"></link>
 
     <sensor_d415 parent="feedbot_camera_base_link">
        <origin xyz="0 0 0" rpy="0 0 0"/>
     </sensor_d415>
     
     <gazebo reference="feedbot_camera_base_link">
-        <gravity>0</gravity>
         <sensor name="color" type="camera">
             <pose frame="camera_color_optical_frame">0 0 0 0 0 0</pose>
             <camera name="color">

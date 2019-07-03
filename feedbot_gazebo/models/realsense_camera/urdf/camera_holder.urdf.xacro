@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<robot name="camera_holder"
+    xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+    xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+    xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+    xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#xacro">
+  <link name="camera_holder">
+    <inertial>
+      <origin xyz="0.0 0.0 0.055" />
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="100.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.055"/>
+      <geometry>
+        <box size="0.04 0.04 0.11" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.055"/>
+      <geometry>
+        <box size="0.04 0.04 0.11" />
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo reference="camera_holder">
+    <material>Gazebo/Blue</material>
+    <gravity>0</gravity>
+    <static>true</static>
+  </gazebo>
+</robot>
