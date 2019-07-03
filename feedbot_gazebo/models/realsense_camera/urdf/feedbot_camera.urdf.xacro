@@ -33,7 +33,7 @@
                 <stddev>0.005</stddev>
               </noise>
             </camera>
-            <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+            <plugin name="color_camera_controller" filename="libgazebo_ros_camera.so">
                 <alwaysOn>true</alwaysOn>
                 <updateRate>0.0</updateRate>
                 <cameraName>color</cameraName>
@@ -64,18 +64,15 @@
                 <near>0.1</near>
                 <far>100</far>
             </clip>
-            <noise>
-                <type>gaussian</type>
-                <mean>0.0</mean>
-                <stddev>0.005</stddev>
-            </noise>
+            <depth_camera>
+            </depth_camera>
             </camera>
-            <plugin name="camera_plugin" filename="libgazebo_ros_openni_kinect.so">
+            <plugin name="kinect_camera_controller" filename="libgazebo_ros_openni_kinect.so">
                 <baseline>0.55</baseline>
                 <alwaysOn>true</alwaysOn>
                 <!-- Keep this zero, update_rate in the parent <sensor> tag
                     will control the frame rate. -->
-                <updateRate>30.0</updateRate>
+                <updateRate>0.0</updateRate>
                 <cameraName>depth</cameraName>
                 <imageTopicName>/camera/depth_registered/image_raw</imageTopicName>
                 <cameraInfoTopicName>/camera/depth_registered/camera_info</cameraInfoTopicName>
@@ -95,7 +92,7 @@
                 <focalLength>0</focalLength>
                 <hackBaseline>0</hackBaseline>
             </plugin>
-            <update_rate>30</update_rate>
+            <update_rate>15</update_rate> <!-- don't know why I get twice the value in rostopic -->
             <always_on>1</always_on>
         </sensor>
     </gazebo>
