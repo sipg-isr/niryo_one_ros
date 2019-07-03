@@ -7,7 +7,7 @@
 
     <node name="camera_state_publisher" pkg="robot_state_publisher" type="state_publisher">
         <remap from="robot_description" to="camera_description" />
-        <remap from="joint_states" to="camera_joint_states" />
+        <remap from="joint_states" to="feedbot_camera" />
     </node>
 
     <node name="camera_spawn" pkg="gazebo_ros" type="spawn_model" args="-urdf -param camera_description -model feedbot_camera"/>

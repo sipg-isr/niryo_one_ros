@@ -14,6 +14,7 @@
     </sensor_d415>
     
     <gazebo reference="feedbot_camera_base_link">
+        <gravity>0</gravity>
         <sensor name="color" type="camera">
             <pose frame="camera_color_optical_frame">0 0 0 0 0 0</pose>
             <camera name="color">
